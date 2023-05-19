@@ -46,21 +46,3 @@ function aumentaTexto(event){
 }
 
 window.addEventListener('keydown', aumentaTexto)
-
-const paragraphs = document.querySelectorAll('p')
-
-function aumentarTexto(event){
-    event.target.style.fontSize = '1.5rem'
-    event.target.style.backgroundColor = 'white'
-    event.target.style.padding = '10px'
-    
-}
-
-function reduzirTexto(event){
-    event.target.style.fontSize = '1rem'
-}
-
-paragraphs.forEach((item) =>{
-    item.addEventListener('mouseenter', aumentarTexto)
-    item.addEventListener('mouseout', reduzirTexto)
-})

@@ -17,4 +17,4 @@ imagesList.forEach((item, index)=>{
   item.addEventListener('click', function(){
     activeTab(index)
   })
-})
+}) 

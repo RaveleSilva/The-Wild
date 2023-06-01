@@ -1,3 +1,7 @@
+html{
+    scroll-behavior: smooth;
+}
+
 html.textomaior{
     font-size: 150%;
 }
@@ -138,6 +142,10 @@ body{
     cursor: pointer;
 }
 
+#faq{
+    grid-gap: 10px;
+}
+
 .pergunta{
     grid-column: 2 / -1;
 }
@@ -149,6 +157,17 @@ body{
     margin-bottom: .5rem;
     color: #e54;
     font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.pergunta dt::after{
+    content: '⬎';
+    margin-left: 10px;
+}
+
+.pergunta dt.active::after{
+    content: '⬏';
+    margin-left: 10px;
 }
 
 .pergunta dt::before{
@@ -162,8 +181,27 @@ body{
 
 .pergunta dd{
     font-family: Helvetica, Arial, sans-serif;
-    margin-bottom: .5rem;
-    margin-left: 30px; 
+    margin-left: 30px;
+}
+
+.js .pergunta dd{
+    display: none;
+}
+
+.js .pergunta dd.active{
+    display: block;
+    animation: slideDown .5s forwards;
+}
+
+@keyframes slideDown{
+    from{
+        opacity: 0;
+        max-height: 0;
+    }
+    to{
+        max-height: 100px;
+        opacity: 1;
+    }
 }
 
 .map-img{

@@ -7,8 +7,8 @@ function activeTab(index){
   animalsContent.forEach((item)=>{
     item.classList.remove('ativo')
   })
-
-  animalsContent[index].classList.add('ativo')
+  const direcao = animalsContent[index].dataset.anime
+  animalsContent[index].classList.add('ativo', direcao)
 }
 
 //Função para adicionar o evento de click em todos os elementos de imagesList e ativar a função activeTab com o índice do elemento

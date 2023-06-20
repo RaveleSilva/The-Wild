@@ -1,5 +1,5 @@
-const imagesList = document.querySelectorAll('.js-tabmenu li')
-const animalsContent = document.querySelectorAll('.js-tabcontent .animal-desc')
+const imagesList = document.querySelectorAll('[data-tab="menu"] li')
+const animalsContent = document.querySelectorAll('[data-tab="content"] .animal-desc')
 
 //Função para remover a classe 'ativo de todos os itens de animalsContent e adicionar apenas no item com o índice do parâmetro
 

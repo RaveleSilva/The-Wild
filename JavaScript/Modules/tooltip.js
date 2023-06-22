@@ -1,45 +1,42 @@
 export default function initTooltip(){
-  const toolTips = document.querySelectorAll('[data-tooltip]')
+  const tooltipList = document.querySelectorAll('[data-tooltip]')
 
-  if(toolTips){
-    toolTips.forEach((item)=>{
-      item.addEventListener('mouseover', onMouseOver)
+  if(tooltipList.length){
+    tooltipList.forEach(tooltip=>{
+      tooltip.addEventListener('mouseover', onMouseOver)
     })
-  
-    function onMouseOver(){
-      const tooltipBox = criarTooltipBox(this)
-  
+    
+    function onMouseOver(event){
+      const tooltipBox = createTooltipBox(this)
+    
       onMouseMove.tooltipBox = tooltipBox
-      onMouseLeave.tooltipBox = tooltipBox
-      onMouseLeave.element = this
-  
-      this.addEventListener('mouseleave', onMouseLeave)
+      onMouseOut.tooltipBox = tooltipBox
+      onMouseOut.element = this
       this.addEventListener('mousemove', onMouseMove)
+      this.addEventListener('mouseout', onMouseOut)
     }
-  
-    const onMouseLeave = {
-      handleEvent(){
-        this.tooltipBox.remove()
-        this.element.removeEventListener('mouseleave', onMouseLeave)
-        this.element.removeEventListener('mousemove', onMouseMove)
-      }
-    }
-  
+    
     const onMouseMove = {
       handleEvent(event){
         this.tooltipBox.style.top = event.pageY + 20 + 'px'
         this.tooltipBox.style.left = event.pageX + 20 + 'px'
       }
     }
-  
-    function criarTooltipBox(element){
+    
+    const onMouseOut = {
+      handleEvent(){
+        this.tooltipBox.remove()
+        this.element.removeEventListener('mousemove', onMouseMove)
+        this.element.removeEventListener('mouseout', onMouseOut)
+      }
+    }
+    
+    function createTooltipBox(element){
       const tooltipBox = document.createElement('div')
-      const tooltipText = element.getAttribute('aria-label')
-  
       tooltipBox.classList.add('tooltip')
-      tooltipBox.innerText = tooltipText
+      const tooltipBoxText = element.getAttribute('aria-label')
+      tooltipBox.innerText = tooltipBoxText
       document.body.appendChild(tooltipBox)
-  
       return tooltipBox
     }
   }

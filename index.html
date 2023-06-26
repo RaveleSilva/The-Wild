@@ -14,7 +14,8 @@
     <div class="grid-container">
         <header class="menu">
             <nav>
-                <ul>
+                <button data-menu="button" aria-expanded="false" aria-controls="menu">Menu</button>
+                <ul data-menu="list" id="menu">
                     <li><a href="#animais">ANIMAIS</a></li>
                     <li data-dropdown>
                         <a href="sobre.html">Sobre</a>
@@ -128,6 +129,27 @@
                 <dt>Como proteger?</dt>
                 <dd>As raposas são animais mamíferos e onívoros pertencentes à família Canidae. São vulpídeos de porte médio, caracterizados por um focinho comprido e uma cauda longa e peluda.</dd>
             </dl>
+        </section>
+        <section class="grid-section numeros" data-anime="scroll">
+            <h1 class="titulo">Números</h1>
+            <div class="numeros-grid">
+                <div class="numero-animal">
+                    <h3>Lobos</h3>
+                    <span data-numero>5375</span>
+                </div>
+                <div class="numero-animal">
+                    <h3>Raposas</h3>
+                    <span data-numero>3863</span>
+                </div>
+                <div class="numero-animal">
+                    <h3>Esquilos</h3>
+                    <span data-numero>12356</span>
+                </div>
+                <div class="numero-animal">
+                    <h3>Ursos</h3>
+                    <span data-numero>230</span>
+                </div>
+            </div>
         </section>
         <section class="grid-section contato" id="contato" data-anime="scroll">
             <h1 class="titulo">CONTATO</h1>

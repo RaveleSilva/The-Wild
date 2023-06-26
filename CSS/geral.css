@@ -37,11 +37,15 @@ body{
   padding-bottom: 2rem;
 }
 
+.menu nav{
+  background-color: #fb5;
+  padding: 20px 5px;
+}
+
 .menu nav > ul{
   display: flex;
-  background-color: #fb5;
-  flex-wrap: wrap;
   padding: 10px;
+  flex-wrap: wrap;
 }
 
 .menu li > a{
@@ -274,14 +278,18 @@ body{
       grid-template-columns: 1fr;
   }
 
+  nav > ul{
+    width: 180px;
+  }
+
   .menu,
   .grid-section,
   .copy{
-      grid-column: 1;
+      grid-column: 1 / -1;
   }
 
   .grid-section{
-      grid-template-columns: 100px 1fr;
+      grid-template-columns: 1fr;
       grid-gap: 10px;
   }
 

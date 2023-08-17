@@ -7,6 +7,7 @@ import initDropDownMenu from "./Modules/dropdownmenu.js";
 import initMenuMobile from "./Modules/menuMobile.js";
 import initFuncionamento from "./Modules/funcionamento.js";
 import initFetchAnimais from "./Modules/fetchAnimais.js";
+import initFetchBitcoin from "./Modules/fetchBitcoin.js";
 
 
 initModal()
@@ -18,3 +19,4 @@ initAccordion()
 initTooltip()
 initFuncionamento()
 initFetchAnimais()
+initFetchBitcoin()

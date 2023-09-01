@@ -1,24 +1,20 @@
-export default function tabNav(){
-  const imagesList = document.querySelectorAll('[data-tab="menu"] li')
-  const animalsContent = document.querySelectorAll('[data-tab="content"] .animal-desc')
+export default function tabNav() {
+  const imagesList = document.querySelectorAll('[data-tab="menu"] li');
+  const animalsContent = document.querySelectorAll('[data-tab="content"] .animal-desc');
 
-  if(imagesList.length && animalsContent.length){
-    //Função para remover a classe 'ativo de todos os itens de animalsContent e adicionar apenas no item com o índice do parâmetro
+  function activeTab(index) {
+    animalsContent.forEach((item) => {
+      item.classList.remove('ativo');
+    });
+    const direcao = animalsContent[index].dataset.anime;
+    animalsContent[index].classList.add('ativo', direcao);
+  }
 
-    function activeTab(index){
-      animalsContent.forEach((item)=>{
-        item.classList.remove('ativo')
-      })
-      const direcao = animalsContent[index].dataset.anime
-      animalsContent[index].classList.add('ativo', direcao)
-    }
-
-    //Função para adicionar o evento de click em todos os elementos de imagesList e ativar a função activeTab com o índice do elemento
-
-    imagesList.forEach((item, index)=>{
-      item.addEventListener('click', function(){
-        activeTab(index)
-      })
-    })
+  if (imagesList.length && animalsContent.length) {
+    imagesList.forEach((item, index) => {
+      item.addEventListener('click', () => {
+        activeTab(index);
+      });
+    });
   }
 }

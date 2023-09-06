@@ -1,7 +1,7 @@
 import initAnimaScroll from './Modules/anima-scroll.js';
 import Accordion from './Modules/accordion.js';
 import TabNav from './Modules/tabNav.js';
-import initModal from './Modules/modal.js';
+import Modal from './Modules/modal.js';
 import initTooltip from './Modules/tooltip.js';
 import initDropDownMenu from './Modules/dropDownMenu.js';
 import initMenuMobile from './Modules/menuMobile.js';
@@ -15,7 +15,9 @@ accordion.init();
 const tabnav = new TabNav('[data-tab="menu"] li', '[data-tab="content"] .animal-desc');
 tabnav.init();
 
-initModal();
+const modal = new Modal('[data-modal="abrir"]', '[data-modal="fechar"]', '[data-modal="container"');
+modal.init();
+
 initMenuMobile();
 initDropDownMenu();
 initAnimaScroll();

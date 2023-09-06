@@ -2,7 +2,7 @@ import initAnimaScroll from './Modules/anima-scroll.js';
 import Accordion from './Modules/accordion.js';
 import TabNav from './Modules/tabNav.js';
 import Modal from './Modules/modal.js';
-import initTooltip from './Modules/tooltip.js';
+import Tooltip from './Modules/tooltip.js';
 import initDropDownMenu from './Modules/dropDownMenu.js';
 import initMenuMobile from './Modules/menuMobile.js';
 import initFuncionamento from './Modules/funcionamento.js';
@@ -18,10 +18,12 @@ tabnav.init();
 const modal = new Modal('[data-modal="abrir"]', '[data-modal="fechar"]', '[data-modal="container"');
 modal.init();
 
+const tooltip = new Tooltip('[data-tooltip]');
+tooltip.init();
+
 initMenuMobile();
 initDropDownMenu();
 initAnimaScroll();
-initTooltip();
 initFuncionamento();
 initFetchAnimais();
 initFetchBitcoin();

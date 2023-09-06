@@ -9,8 +9,7 @@ export default class Modal {
     this.fecharClicandoFora = this.fecharClicandoFora.bind(this);
   }
 
-  abrirFecharModal(event) {
-    event.preventDefault();
+  abrirFecharModal() {
     this.containerModal.classList.toggle(this.activeClass);
   }
 

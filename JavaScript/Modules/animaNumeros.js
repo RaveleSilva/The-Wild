@@ -1,34 +1,47 @@
-export default function initAnimaNumeros() {
-  function animaNumeros() {
-    const numeros = document.querySelectorAll('[data-numero]');
+export default class AnimaNumeros {
+  constructor(numeros, observerClass, observerTarget) {
+    this.numeros = document.querySelectorAll(numeros);
+    this.observerClass = observerClass;
+    this.observerTarget = document.querySelector(observerTarget);
 
-    numeros.forEach((numero) => {
-      const total = +numero.innerText;
-      const incremento = Math.floor(total / 100);
-      let inicial = 0;
-      const timer = setInterval(() => {
-        if (inicial < total) {
-          inicial += incremento;
-          numero.innerText = inicial;
-        } else {
-          clearInterval(timer);
-          numero.innerText = total;
-        }
-      }, 20);
-    });
+    this.handleMutation = this.handleMutation.bind(this);
   }
 
-  let observer;
+  static incrementarNumero(numero) {
+    const total = +numero.innerText;
+    const incremento = Math.floor(total / 100);
+    let inicial = 0;
+    const timer = setInterval(() => {
+      if (inicial < total) {
+        inicial += incremento;
+        numero.innerText = inicial;
+      } else {
+        clearInterval(timer);
+        numero.innerText = total;
+      }
+    }, 20 * Math.random());
+  }
 
-  function handleMutation(Mutation) {
-    if (Mutation[0].target.classList.contains('ativo')) {
-      observer.disconnect();
-      animaNumeros();
+  animaNumeros() {
+    this.numeros.forEach((numero) => this.constructor.incrementarNumero(numero));
+  }
+
+  handleMutation(Mutation) {
+    if (Mutation[0].target.classList.contains(this.observerClass)) {
+      this.observer.disconnect();
+      this.animaNumeros();
     }
   }
 
-  observer = new MutationObserver(handleMutation);
-  const observerTarget = document.querySelector('.numeros');
+  addMutationObserver() {
+    this.observer = new MutationObserver(this.handleMutation);
+    this.observer.observe(this.observerTarget, { attributes: true });
+  }
 
-  observer.observe(observerTarget, { attributes: true });
+  init() {
+    if (this.numeros.length && this.observerTarget) {
+      this.addMutationObserver();
+    }
+    return this;
+  }
 }

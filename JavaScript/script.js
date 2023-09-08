@@ -6,7 +6,7 @@ import Tooltip from './Modules/tooltip.js';
 import initDropDownMenu from './Modules/dropDownMenu.js';
 import initMenuMobile from './Modules/menuMobile.js';
 import initFuncionamento from './Modules/funcionamento.js';
-import initFetchAnimais from './Modules/fetchAnimais.js';
+import fetchAnimais from './Modules/fetchAnimais.js';
 import initFetchBitcoin from './Modules/fetchBitcoin.js';
 
 const accordion = new Accordion('[data-anime="accordion"] dt');
@@ -25,5 +25,6 @@ initMenuMobile();
 initDropDownMenu();
 initAnimaScroll();
 initFuncionamento();
-initFetchAnimais();
 initFetchBitcoin();
+
+fetchAnimais('../../animaisAPI.json', '.numeros-grid');

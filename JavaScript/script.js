@@ -7,7 +7,7 @@ import initDropDownMenu from './Modules/dropDownMenu.js';
 import initMenuMobile from './Modules/menuMobile.js';
 import initFuncionamento from './Modules/funcionamento.js';
 import fetchAnimais from './Modules/fetchAnimais.js';
-import initFetchBitcoin from './Modules/fetchBitcoin.js';
+import fetchBitcoin from './Modules/fetchBitcoin.js';
 
 const accordion = new Accordion('[data-anime="accordion"] dt');
 accordion.init();
@@ -25,6 +25,6 @@ initMenuMobile();
 initDropDownMenu();
 initAnimaScroll();
 initFuncionamento();
-initFetchBitcoin();
 
 fetchAnimais('../../animaisAPI.json', '.numeros-grid');
+fetchBitcoin('https://blockchain.info/ticker', '.btc-preco');

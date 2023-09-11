@@ -1,14 +1,27 @@
-export default function initDropDownMenu() {
-  const dropDownList = document.querySelectorAll('[data-dropdown]');
+export default class DropDownMenu {
+  constructor(dropdownList) {
+    this.dropDownList = document.querySelectorAll(dropdownList);
 
-  function dropDownActive(event) {
+    this.dropDownActive = this.dropDownActive.bind(this);
+  }
+
+  dropDownActive(event) {
     event.preventDefault();
     this.classList.toggle('ativo');
   }
 
-  dropDownList.forEach((dropdown) => {
-    ['click', 'touchstart'].forEach((userEvent) => {
-      dropdown.addEventListener(userEvent, dropDownActive);
+  addDropDownEvent() {
+    this.dropDownList.forEach((dropdown) => {
+      ['click', 'touchstart'].forEach((userEvent) => {
+        dropdown.addEventListener(userEvent, this.dropDownActive);
+      });
     });
-  });
+  }
+
+  init() {
+    if (this.dropDownList.length) {
+      this.addDropDownEvent();
+    }
+    return this;
+  }
 }

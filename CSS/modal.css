@@ -20,8 +20,10 @@
   padding: 40px;
   border: 10px solid #FB5;
   box-shadow: 0 0 0 10px white;
+  box-sizing: border-box;
   position: relative;
-  min-width: 350px;
+  width: 80vw;
+  max-width: 600px;
 }
 
 @keyframes modal{
@@ -48,7 +50,7 @@
   border: 4px solid white;
   border-radius: 50%;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, .3);
-  background-color: #E54;
+  background: #E54;
   font-size: 1.2rem;
   font-family: 'IBM Plex Mono', monospace;
   font-weight: bold;
@@ -72,6 +74,8 @@
   width: 100%;
   padding: .7rem .5rem;
   box-sizing: border-box;
+  border: 2px solid black;
+  border-radius: 0px;
 }
 
 .modal button[type="submit"]{

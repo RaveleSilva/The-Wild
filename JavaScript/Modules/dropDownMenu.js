@@ -1,13 +1,13 @@
 export default class DropDownMenu {
   constructor(dropdownList) {
-    this.dropDownList = document.querySelectorAll(dropdownList);
+    this.dropDownList = document.querySelector(dropdownList);
 
     this.dropDownActive = this.dropDownActive.bind(this);
   }
 
   dropDownActive(event) {
     event.preventDefault();
-    this.classList.toggle('ativo');
+    this.dropDownList.classList.toggle('ativo');
   }
 
   addDropDownEvent() {
